@@ -1,0 +1,37 @@
+// Online C++ compiler to run C++ program online
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+    int n;
+    cin>>n;
+    int a[n];
+    for(int i=0;i<n;i++){
+        cin>>a[i];
+    }
+    int t;
+    cin>>t;
+    //initialize the basic variables
+    int l=0,r=0;
+    //min and sum
+    int m=INT_MAX;
+    int sum=0;
+    
+    while(r<n){
+        //add the current element
+        sum+=a[r];
+        //contract window
+        while(t<=sum){
+            m=min(m,r-l+1);
+            sum-=a[l];
+            l++;
+        }
+        r++;
+        //minimum no.of nos required
+        
+    }
+if(m==INT_MAX)
+        cout<<"0";
+        else
+        cout<<m;
+    return 0;
+}
